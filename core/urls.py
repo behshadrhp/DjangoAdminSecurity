@@ -16,8 +16,11 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
+    # django real admin panel
+    path("real-admin/", admin.site.urls),
+    # django honeypot admin panel
+    path('admin/', include('admin_honeypot.urls', namespace='admin_honeypot')),
 ]
